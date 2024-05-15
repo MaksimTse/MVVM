@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVM.Views.DBListPage"
+             Title="DBListPage">
+    <StackLayout>
+        <HorizontalStackLayout HorizontalOptions="Fill">
+            <Button Text="Nimi" Clicked="SortByProperty" CommandParameter="Name" WidthRequest="80" Background="#3c3c3c" TextColor="White"/>
+            <Button Text="Email" Clicked="SortByProperty" CommandParameter="Email" WidthRequest="80" Background="#3c3c3c" TextColor="White"/>
+            <Button Text="Telefon" Clicked="SortByProperty" CommandParameter="Phone" WidthRequest="80" Background="#3c3c3c" TextColor="White"/>
+            <Button Text="Vanus" Clicked="SortByProperty" CommandParameter="Age" WidthRequest="80" Background="#3c3c3c" TextColor="White"/>
+            <Button Text="Pilt" Clicked="SortImage" WidthRequest="80" Background="#3c3c3c" TextColor="White"/>
+        </HorizontalStackLayout>
+        <ListView x:Name="friendsList" ItemsSource="{Binding}" ItemSelected="OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <HorizontalStackLayout>
+                                <Label Text="{Binding Name}" FontSize="Medium"></Label>
+                            </HorizontalStackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Lisa" Clicked="CreateFriend" Background="#3c3c3c" TextColor="White"/>
+    </StackLayout>
+</ContentPage>
